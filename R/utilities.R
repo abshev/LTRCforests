@@ -397,12 +397,12 @@ get.rfq.bits <- function (rfq, family) {
     return (result)
 }
 get.rf.cores <- function () {
-  # if (is.null(getOption("rf.cores"))) {
-  #   if(!is.na(as.numeric(Sys.getenv("RF_CORES")))) {
-  #     options(rf.cores = as.integer(Sys.getenv("RF_CORES")))
-  #   }
-  # }
-  return (-1L)
+  if (is.null(getOption("rf.cores"))) {
+    if(!is.na(as.numeric(Sys.getenv("RF_CORES")))) {
+      options(rf.cores = as.integer(Sys.getenv("RF_CORES")))
+    }
+  }
+  return (getOption("rf.cores"))
 }
 ## convert samptype option into native code parameter.
 get.samptype <- function (samptype) {
