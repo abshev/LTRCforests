@@ -425,7 +425,8 @@ ltrcrfsrc <- function(formula, data, ntree = 1000,
                                     as.double(prob),
                                     as.double(prob.epsilon),
                                     as.double(NULL),
-                                    as.integer(get.rf.cores()))}, error = function(e) {
+                                    as.integer(80L))}, error = function(e) {
+                                    # as.integer(get.rf.cores()))}, error = function(e) {
                                         print(e)
                                         NULL})
     ## check for error return condition in the native code
